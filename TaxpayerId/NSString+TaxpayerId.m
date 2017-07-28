@@ -18,6 +18,13 @@
         return NO;
     }
     
+    // 数字&字母
+    NSString * regex = @"^[0-9a-zA-Z]+$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    if (![predicate evaluateWithObject:self]) {
+        return NO;
+    }
+    
     // 获取地址码
     NSString *addressCode;
     if (self.length > 17) {
